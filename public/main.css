@@ -1,0 +1,183 @@
+
+body, html {
+  margin: 0;
+  padding: 0;
+  background: #F5F5F5;
+}
+
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 14px;
+  color: #232D37;
+  letter-spacing: 0.4px;
+}
+
+body * {
+  box-sizing: border-box;
+}
+
+p, span, a, h1, h2, h3 {
+  color: inherit;
+  font: inherit;
+  text-decoration: none;
+}
+
+a {
+  color: rgba(35,45,55,0.6);
+}
+a:hover, a:focus, a:visited {
+  text-decoration: none;
+  font-style: normal;
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 14px;
+  color: #232D37;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+
+@media 
+(-webkit-min-device-pixel-ratio: 2), 
+(min-resolution: 192dpi) { 
+}
+
+.navigation {
+  background: #fff;
+}
+
+.navigation ul {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.navigation ul li {
+  list-style: none;
+}
+
+.navigation .nav-item {
+  height: 50px;
+  line-height: 50px;
+  margin-left: 60px;
+  vertical-align: middle;
+
+  border-bottom: 3px solid transparent;
+}
+
+.navigation .nav-item.active,
+.navigation .nav-item:hover {
+  border-bottom: 3px solid #2EBEE2;
+}
+.navigation .nav-item.nav-item--inert.active,
+.navigation .nav-item.nav-item--inert:hover {
+  border-bottom: 3px solid transparent;
+}
+
+.navigation .nav-item-spacer {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.navigation .logo {
+  vertical-align: middle;
+}
+
+.navigation-level-2 ul {
+  justify-content: space-between;
+}
+.navigation-level-2 .nav-item {
+  margin: 0;
+}
+.navigation-level-2 .nav-item.active,
+.navigation-level-2 .nav-item:hover {
+  border-bottom-color: transparent;
+  color: #2EBEE2;
+  font-weight: 600;
+}
+
+/* weird fix to keep spacing on hover */
+.navigation-level-2 .nav-item a::after {
+  display:block;
+  content:attr(title);
+  font-weight:bold;
+  height:1px;
+  color:transparent;
+  overflow:hidden;
+  visibility:hidden;
+}
+
+.landing-image {
+  background-image: url(img/justuswirth_coverfront.jpg);
+  background-size: cover;
+  width: 100%;
+  min-height: 550px;
+}
+
+.main-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.main-wrapper section {
+  margin-top: 100px;
+}
+
+.main-wrapper h1 {
+  font-weight: 700;
+  font-size: 24px;
+  color: #232D37;
+  letter-spacing: 0.66px;
+  text-align: center;
+  margin: 0;
+  margin-bottom: 80px;
+}
+
+.music-album {
+  display: flex;
+  margin-bottom: 100px;
+}
+
+.music-album .thumbnail {
+  margin-right: 70px;
+}
+
+.music-album .thumbnail img {
+  border-radius: 3px;
+}
+
+.music-album .details {
+  flex: 1;
+}
+
+.music-album .details .year {
+  opacity: 0.6;
+  font-size: 14px;
+  color: #232D37;
+  letter-spacing: 0.4px;
+}
+
+.track-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+.track-list li {
+  line-height: 42px;
+  color: rgba(35,45,55,0.6);
+
+  border-top: 1px solid rgba(35,45,55,0.05);
+}
+
+.track-list li:last-child {
+  border-bottom: 1px solid rgba(35,45,55,0.05);
+}
+
+.track-list li span {
+  float: right;
+}
