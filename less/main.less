@@ -1,6 +1,6 @@
 
 
-@background: #F5F5F5;
+@background: #fff;
 @highlight: #2EBEE2;
 @text-footer: fade(#777D83, 60%);
 @text-bold: #232D37;
@@ -379,5 +379,46 @@ footer {
     .social:last-child {
       margin-right: 0;
     }
+  }
+}
+
+
+.video-gallery {
+  display: flex;
+
+  .video-selection {
+    width: 22.222222%;
+    margin-right: auto;
+
+    ul, li {
+      list-style: none;
+      margin: 0;
+    }
+
+    .video {
+      position: relative;
+      width: 100%;
+      height: 112px;
+      background: @highlight;
+      margin-bottom: 10px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .video.active::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+
+      border-radius: 4px;
+      background: fade(@text-bold, 40%);
+    }
+  }
+
+  .video-player {
+    width: 70%;
   }
 }
