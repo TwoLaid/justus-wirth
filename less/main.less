@@ -88,16 +88,24 @@ h2 {
 .navigation ul {
   display: flex;
   margin: 0;
-  padding: 0;
+  padding: 0 40px 0 40px;
   list-style: none;
   max-width: 900px;
   margin: 0 auto;
+
+  justify-content: flex-end;
+  flex-wrap: wrap;
 }
 .navigation ul li {
   list-style: none;
 }
 
+.navigation .nav-group {
+  margin-left: 40px;
+}
+
 .navigation .nav-item {
+  display: inline-block;
   height: 50px;
   line-height: 50px;
   margin-left: 60px;
@@ -106,6 +114,9 @@ h2 {
 
   border-bottom: 3px solid transparent;
   text-transform: uppercase;
+}
+.navigation .nav-item:first-child {
+  margin-left: 0;
 }
 
 .navigation .nav-item.active,
@@ -156,6 +167,14 @@ h2 {
   position: fixed;
   top: 0;
 }
+
+@media screen and (max-width: 530px) {
+  .navigation-level-2 ul {
+    margin: 0;
+    padding: 0 20px 0 20px;
+  }
+}
+
 
 
 /* weird fix to keep spacing on hover */
@@ -254,6 +273,21 @@ h2 {
   float: right;
 }
 
+@media screen and (max-width: 600px) {
+  .music-album {
+    flex-direction: column;
+
+    .thumbnail {
+      width: 100%;
+      margin-right: 0;
+    }
+    .details {
+      width: 100%;
+    }
+  }
+
+
+}
 
 table {
   width: 100%;
@@ -306,11 +340,20 @@ table {
   .contact-me {
     margin-top: 40px;
   }
+}
 
+@media screen and (max-width: 750px) {
+  .bio {
+    flex-direction: column;
+    text-align: center;
+  }
+  .bio .photo { 
+    margin: 0;
+  }
 }
 
 footer {
-  padding: 60px;
+  padding: 60px 0 60px 0;
   text-align: center;
   background: @text-bold;
   color: @text-footer;
