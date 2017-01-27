@@ -1,6 +1,6 @@
 
 
-@background: #fff;
+@background: #F5F5F5;
 @highlight: #2EBEE2;
 @text-footer: fade(#777D83, 60%);
 @text-bold: #232D37;
@@ -111,6 +111,7 @@ h2 {
   margin-left: 60px;
   vertical-align: middle;
   color: @text-regular;
+  font-weight: @weight-semibold;
 
   border-bottom: 3px solid transparent;
   text-transform: uppercase;
@@ -121,9 +122,14 @@ h2 {
 
 .navigation .nav-item.active,
 .navigation .nav-item:hover {
-  border-bottom: 3px solid @highlight;
   font-weight: @weight-semibold;
+  color: @text-bold;
 }
+
+.navigation .nav-item.active {
+  border-bottom: 3px solid @highlight;
+}
+
 .navigation .nav-item.nav-item--inert.active,
 .navigation .nav-item.nav-item--inert:hover {
   border-bottom: 3px solid transparent;
@@ -148,11 +154,13 @@ h2 {
 }
 .navigation-level-2 .nav-item {
   margin: 0;
+  font-weight: @weight-semibold;
+  color: @text-bold;
 }
 .navigation-level-2 .nav-item.active,
 .navigation-level-2 .nav-item:hover {
   border-bottom-color: transparent;
-  color: @highlight;
+  /*color: @highlight;*/
   font-weight: @weight-semibold;
 }
 
@@ -197,7 +205,7 @@ h2 {
   min-height: 550px;
 }
 
-.landing-image {
+.landing-image--tonmeister {
   background-image: url(img/tonmeister_cover.jpg);
 }
 
