@@ -17,7 +17,19 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.get('/', function(request, response) {
-  response.render('pages/index');
+  response.render('pages/landing');
+});
+
+app.get('/musik', function(request, response) {
+  response.render('pages/music/index', {
+    activePage: 'musik'
+  });
+});
+
+app.get('/tonmeister', function(request, response) {
+  response.render('pages/tonmeister/index', {
+    activePage: 'tonmeister'
+  });
 });
 
 app.listen(app.get('port'), function() {

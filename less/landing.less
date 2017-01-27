@@ -1,0 +1,87 @@
+
+body, html {
+  font-family: 'Source Sans Pro', sans-serif;
+
+  margin: 0;
+  padding: 0;
+}
+
+.landing-wrapper {
+  position: relative;
+
+  width: 100vw;
+  height: 100vh;
+
+  background-image: url(img/background.jpg);
+  background-repeat: no-repeat no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  .logo {
+    /*position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    background-image: url(img/Logo_landing@2x.png);
+    background-repeat: no-repeat no-repeat;
+    background-position: center;
+    background-size: 630px 46px;
+
+    background-position-y: 29.3%;*/
+
+    position: absolute;
+    opacity: 1;
+    transition: opacity 200ms;
+
+    margin-left: ~"calc(100vw / 2 - 315px)";
+  }
+
+  .leaves {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    background-image: url(img/leaves.png);
+    background-repeat: no-repeat no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+.bottom-wrapper {
+  width: 100%;
+  bottom: 20%;
+  position: absolute;
+}
+
+.nav-buttons {
+  margin: 0 auto;
+  max-width: 630px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.button {
+  background: #FFFFFF;
+  font-weight: 700;
+  font-size: 14px;
+  color: #232D37;
+  letter-spacing: 0.4px;
+  padding: 11px 0 11px;
+  vertical-align: middle;
+  min-width: 140px;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 700px) {
+  .nav-buttons {
+    margin: 0 10px 0 10px;
+    justify-content: space-around;
+  }
+}

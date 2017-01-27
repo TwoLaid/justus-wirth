@@ -11,26 +11,14 @@
   <nav id="top-nav" class="navigation">
     <ul>
       <li class="nav-item nav-item--inert">
-        <img src="img/Logo@2x.png" width="220" height="16" class="logo">
+        <a href="/">
+          <img src="img/Logo@2x.png" width="220" height="16" class="logo">
+        </a>
       </li>
       <li class="nav-item-spacer"></li>
       <li class="nav-group">
-        <div class="nav-item active"><a href="#" title="MUSIK">Musik</a></div>
-        <div class="nav-item"><a href="#" title="TONMEISTER">Tonmeister</a></div>
+        <div class="nav-item <% if (activePage == "musik") { %> active <% } %>"><a href="/musik" title="MUSIK">Musik</a></div>
+        <div class="nav-item <% if (activePage == "tonmeister") { %> active <% } %>"><a href="/tonmeister" title="TONMEISTER">Tonmeister</a></div>
       </li>
     </ul>
   </nav>
-
-  <section class="landing-image">
-  </section>
-
-  <nav class="navigation navigation-level-2">
-    <ul>
-      <li class="nav-item"><a href="#music" id="nav-music" title="MUSIK">MUSIK</a></li>
-      <li class="nav-item"><a href="#gigs" id="nav-gigs" title="AUFTRITTE">AUFTRITTE</a></li>
-      <li class="nav-item"><a href="#videos" id="nav-videos" title="VIDEOS">VIDEOS</a></li>
-      <li class="nav-item"><a href="#about" id="nav-about" title="ÜBER">ÜBER</a></li>
-    </ul>
-  </nav>
-
-  <div class="main-wrapper">
