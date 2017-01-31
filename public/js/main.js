@@ -1,13 +1,10 @@
 
-console.log('init')
-
 function scrollTo(element) {
   console.log('target:', element.offsetTop);
   var targetY = element.offsetTop - 80;
   var startTime = Date.now();
   var duration = 300;
   const start = document.body.scrollTop;
-
 
   function animatedScroll() {
     var now = Date.now();
@@ -18,6 +15,13 @@ function scrollTo(element) {
     if (document.body.scrollTop === targetY) {
       return;
     }
+
+    if (document.body.scrollTop + window.innerHeight >= document.body.scrollHeight - 1) {
+      // reached the bottom
+      console.log('bottom');
+      return;
+    }
+
     requestAnimationFrame(animatedScroll);
   }
 
@@ -28,14 +32,14 @@ var stickyNav = document.querySelector('nav.navigation-level-2');
 var navElements = document.querySelectorAll('nav.navigation-level-2 .nav-item a');
 
 for (var i = 0; i < navElements.length; i++) {
-  navElements[i].addEventListener('click', function(e) {
+  navElements[i].addEventListener('click', function (e) {
     e.preventDefault();
     scrollTo(document.querySelector(this.hash));
   });
 }
 
 
-window.onscroll = function() {
+window.onscroll = function () {
   var scrollY = window.scrollY;
 
   if (scrollY >= 600) {
@@ -48,7 +52,7 @@ window.onscroll = function() {
   var maxOnScreenTarget = navElements[0];
 
   // focus on top half of screen
-  var windowHeight = window.outerHeight/2;
+  var windowHeight = window.outerHeight / 2;
 
   for (var i = 0; i < navElements.length; i++) {
     var target = navElements[i].hash;
@@ -76,7 +80,7 @@ var playerWrapper = document.querySelector('.video-gallery .video-player');
 function onYouTubeIframeAPIReady() {
   document
     .querySelector('.video-gallery .video-selection')
-    .addEventListener('click', function(e) {
+    .addEventListener('click', function (e) {
       if (e.target.dataset.videoId) {
         var active = document.querySelector('.video-gallery .video-selection .video.active');
         if (active) {
@@ -93,7 +97,5 @@ function onYouTubeIframeAPIReady() {
         });
       }
     });
-
-
 }
 
