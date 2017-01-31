@@ -340,6 +340,16 @@ table {
   color: @text-regular;
 }
 
+@media (max-width: 420px) {
+  .table-gigs {
+    td:nth-child(2) {
+      text-align: right;
+    }
+    td:last-child {
+      display: none;
+    }
+  }
+}
 
 .bio {
   display: flex;
