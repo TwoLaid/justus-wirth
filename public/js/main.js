@@ -79,14 +79,30 @@ var playerWrapper = document.querySelector('.video-gallery .video-player');
 
 function onYouTubeIframeAPIReady() {
   var rect = playerWrapper.getBoundingClientRect();
-  
-  // load first video
-  player = new YT.Player(playerWrapper, {
-    height: rect.height,
-    width: rect.width,
-    videoId: document.querySelector('.video-gallery .video-selection .video:first-child').dataset.videoId,
-    events: {}
-  });
+
+  if (window.innerWidth > 800) {
+    // load first video for desktop
+    player = new YT.Player(playerWrapper, {
+      height: rect.height,
+      width: rect.width,
+      videoId: document.querySelector('.video-gallery .video-selection .video:first-child').dataset.videoId,
+      events: {}
+    });
+  } else {
+    // cue all uploads for mobile
+    player = new YT.Player(playerWrapper, {
+      height: rect.height,
+      width: rect.width,
+      events: {
+        'onReady': function() {
+          player.cuePlaylist({
+            listType: 'user_uploads',
+            list: 'altessockenfach'
+          });
+        }
+      }
+    });
+  }
 
   document
     .querySelector('.video-gallery .video-selection')
@@ -102,4 +118,3 @@ function onYouTubeIframeAPIReady() {
       }
     });
 }
-
