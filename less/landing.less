@@ -18,19 +18,6 @@ body, html {
   background-position: center;
 
   .logo {
-    /*position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-
-    background-image: url(img/Logo_landing@2x.png);
-    background-repeat: no-repeat no-repeat;
-    background-position: center;
-    background-size: 630px 46px;
-
-    background-position-y: 29.3%;*/
-
     position: absolute;
     opacity: 1;
     transition: opacity 200ms;
@@ -84,4 +71,27 @@ body, html {
     margin: 0 10px 0 10px;
     justify-content: space-around;
   }
+
+  .landing-wrapper .logo {
+    width: 90vw;
+    height: auto;
+    margin-left: ~"calc(100vw / 2 - 90vw / 2)";
+  }
+}
+
+/* landing images */
+
+@media (max-width: 3840px), (-webkit-min-device-pixel-ratio: 2) and (max-width: 1920px) {
+  .landing-wrapper { background-image: url(img/background@4K.jpg); }
+  .landing-wrapper .leaves { background-image: url(img/leaves@4K.jpg); }
+}
+
+@media (max-width: 1920px), (-webkit-min-device-pixel-ratio: 2) and (max-width: 960px) {
+  .landing-wrapper { background-image: url(img/background@1080.jpg); }
+  .landing-wrapper .leaves { background-image: url(img/leaves@1080.jpg); }
+}
+
+@media (max-width: 1280px), (-webkit-min-device-pixel-ratio: 2) and (max-width: 640px) {
+  .landing-wrapper { background-image: url(img/background@720.jpg); }
+  .landing-wrapper .leaves { background-image: url(img/leaves@720.png); }
 }
