@@ -434,3 +434,85 @@ footer {
     width: 70%;
   }
 }
+
+
+// TONMEISTER
+.table-filmography {
+
+  td {
+    font-weight: normal;
+    font-size: 14px;
+    color: @text-regular;
+    letter-spacing: 0.4px;
+    line-height: 21px;
+    padding: 12px 0 12px 20px;
+
+    &:first-child {
+      padding-left: 12px;
+    }
+
+    &:last-child {
+      text-align: left;
+      font-weight: @weight-semibold;
+    }
+
+    strong {
+      font-weight: @weight-semibold;
+      color: @text-bold;
+    }
+  }
+
+  .table-header {
+    background: white;
+
+    td {
+      text-align: left;
+      font-weight: @weight-semibold;
+    }
+  }
+}
+
+.cv {
+  h3 {
+    font-weight: @weight-bold;
+    font-size: 14px;
+    color: @text-bold;
+    letter-spacing: 0.4px;
+    text-align: center;
+  }
+
+  .cv-section {
+    width: 100%;
+
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+
+  .cv-row {
+    display: flex;
+    text-align: center;
+    margin-top: 12px;
+    margin-bottom: 12px;
+
+    span {
+      display: inline-block;
+      width: 50%;
+
+      &:first-child {
+        margin-right: 35px;
+        text-align: right;
+      }
+
+      &:last-child {
+        font-weight: @weight-semibold;
+        color: @text-bold;
+        margin-left: 35px;
+        text-align: left;
+      }
+    }
+  }
+}
+
+#kontakt {
+  text-align: center;
+}
