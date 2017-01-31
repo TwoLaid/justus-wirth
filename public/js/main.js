@@ -78,6 +78,16 @@ var player;
 var playerWrapper = document.querySelector('.video-gallery .video-player');
 
 function onYouTubeIframeAPIReady() {
+  var rect = playerWrapper.getBoundingClientRect();
+  
+  // load first video
+  player = new YT.Player(playerWrapper, {
+    height: rect.height,
+    width: rect.width,
+    videoId: document.querySelector('.video-gallery .video-selection .video:first-child').dataset.videoId,
+    events: {}
+  });
+
   document
     .querySelector('.video-gallery .video-selection')
     .addEventListener('click', function (e) {
@@ -88,13 +98,7 @@ function onYouTubeIframeAPIReady() {
         }
         e.target.classList.add('active');
 
-        var rect = playerWrapper.getBoundingClientRect()
-        player = new YT.Player(playerWrapper, {
-          height: rect.height,
-          width: rect.width,
-          videoId: e.target.dataset.videoId,
-          events: {}
-        });
+        player.loadVideoById(e.target.dataset.videoId);
       }
     });
 }

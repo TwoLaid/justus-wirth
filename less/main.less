@@ -407,6 +407,7 @@ footer {
 
   .video-selection {
     width: 22.222222%;
+    padding: 0;
     margin-right: auto;
 
     ul, li {
@@ -416,16 +417,22 @@ footer {
 
     .video {
       position: relative;
-      width: 100%;
+      width: 200px;
       height: 112px;
       background: @highlight;
       margin-bottom: 10px;
       cursor: pointer;
       border-radius: 0;
+      
+      img {
+        width: 100%;
+        height: auto;
+        pointer-events: none;
+      }
     }
 
     .video.active::after {
-      content: '';
+      content: 'AUSGEWÄHLT';
       position: absolute;
       top: 0;
       left: 0;
@@ -434,6 +441,14 @@ footer {
 
       border-radius: 0;
       background: fade(@text-bold, 40%);
+
+      font-weight: @weight-bold;
+      font-size: 14px;
+      color: #FFFFFF;
+      letter-spacing: 0.4px;
+      text-align: center;
+      vertical-align: middle;
+      padding-top: 50px;
     }
   }
 
