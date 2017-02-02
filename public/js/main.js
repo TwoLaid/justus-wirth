@@ -39,7 +39,6 @@ if (stickyNav) {
     });
   }
 
-  /*
   window.onscroll = function () {
     var scrollY = window.scrollY;
 
@@ -49,32 +48,31 @@ if (stickyNav) {
       stickyNav.classList.remove('sticky');
     }
 
-    var maxOnScreen = 0;
-    var maxOnScreenTarget = navElements[0];
+    // var maxOnScreen = 0;
+    // var maxOnScreenTarget = navElements[0];
 
-    // focus on top half of screen
-    var windowHeight = window.outerHeight / 2;
+    // // focus on top half of screen
+    // var windowHeight = window.outerHeight / 2;
 
-    for (var i = 0; i < navElements.length; i++) {
-      var target = navElements[i].hash;
-      var rect = document.querySelector(target).getBoundingClientRect();
-      var onScreen = (Math.min(rect.bottom, windowHeight) - Math.max(0, rect.top)) / windowHeight;
-      if (onScreen > maxOnScreen) {
-        maxOnScreen = onScreen;
-        maxOnScreenTarget = navElements[i];
-      }
-    }
+    // for (var i = 0; i < navElements.length; i++) {
+    //   var target = navElements[i].hash;
+    //   var rect = document.querySelector(target).getBoundingClientRect();
+    //   var onScreen = (Math.min(rect.bottom, windowHeight) - Math.max(0, rect.top)) / windowHeight;
+    //   if (onScreen > maxOnScreen) {
+    //     maxOnScreen = onScreen;
+    //     maxOnScreenTarget = navElements[i];
+    //   }
+    // }
 
-    for (var i = 0; i < navElements.length; i++) {
-      var e = navElements[i];
-      if (e == maxOnScreenTarget) {
-        e.parentElement.classList.add('active');
-      } else {
-        e.parentElement.classList.remove('active');
-      }
-    }
+    // for (var i = 0; i < navElements.length; i++) {
+    //   var e = navElements[i];
+    //   if (e == maxOnScreenTarget) {
+    //     e.parentElement.classList.add('active');
+    //   } else {
+    //     e.parentElement.classList.remove('active');
+    //   }
+    // }
   }
-  */
 }
 
 var player;
