@@ -31,47 +31,50 @@ function scrollTo(element) {
 var stickyNav = document.querySelector('nav.navigation-level-2');
 var navElements = document.querySelectorAll('nav.navigation-level-2 .nav-item a');
 
-for (var i = 0; i < navElements.length; i++) {
-  navElements[i].addEventListener('click', function (e) {
-    e.preventDefault();
-    scrollTo(document.querySelector(this.hash));
-  });
-}
-
-
-window.onscroll = function () {
-  var scrollY = window.scrollY;
-
-  if (scrollY >= 600) {
-    stickyNav.classList.add('sticky');
-  } else {
-    stickyNav.classList.remove('sticky');
+if (stickyNav) {
+  for (var i = 0; i < navElements.length; i++) {
+    navElements[i].addEventListener('click', function (e) {
+      e.preventDefault();
+      scrollTo(document.querySelector(this.hash));
+    });
   }
 
-  var maxOnScreen = 0;
-  var maxOnScreenTarget = navElements[0];
+  /*
+  window.onscroll = function () {
+    var scrollY = window.scrollY;
 
-  // focus on top half of screen
-  var windowHeight = window.outerHeight / 2;
-
-  for (var i = 0; i < navElements.length; i++) {
-    var target = navElements[i].hash;
-    var rect = document.querySelector(target).getBoundingClientRect();
-    var onScreen = (Math.min(rect.bottom, windowHeight) - Math.max(0, rect.top)) / windowHeight;
-    if (onScreen > maxOnScreen) {
-      maxOnScreen = onScreen;
-      maxOnScreenTarget = navElements[i];
-    }
-  }
-
-  for (var i = 0; i < navElements.length; i++) {
-    var e = navElements[i];
-    if (e == maxOnScreenTarget) {
-      e.parentElement.classList.add('active');
+    if (scrollY >= 600) {
+      stickyNav.classList.add('sticky');
     } else {
-      e.parentElement.classList.remove('active');
+      stickyNav.classList.remove('sticky');
+    }
+
+    var maxOnScreen = 0;
+    var maxOnScreenTarget = navElements[0];
+
+    // focus on top half of screen
+    var windowHeight = window.outerHeight / 2;
+
+    for (var i = 0; i < navElements.length; i++) {
+      var target = navElements[i].hash;
+      var rect = document.querySelector(target).getBoundingClientRect();
+      var onScreen = (Math.min(rect.bottom, windowHeight) - Math.max(0, rect.top)) / windowHeight;
+      if (onScreen > maxOnScreen) {
+        maxOnScreen = onScreen;
+        maxOnScreenTarget = navElements[i];
+      }
+    }
+
+    for (var i = 0; i < navElements.length; i++) {
+      var e = navElements[i];
+      if (e == maxOnScreenTarget) {
+        e.parentElement.classList.add('active');
+      } else {
+        e.parentElement.classList.remove('active');
+      }
     }
   }
+  */
 }
 
 var player;

@@ -35,6 +35,12 @@ app.get('/tonmeister', function(request, response) {
   });
 });
 
+app.get('/impressum', function(request, response) {
+  response.render('pages/imprint', {
+    activePage: 'impressum'
+  });
+});
+
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
