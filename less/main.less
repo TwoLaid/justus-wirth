@@ -216,6 +216,7 @@ h2 {
 }
 
 .landing-image--tonmeister {
+  background-position: 56% center;
   background-image: url(img/tonmeister_cover.jpg);
 }
 
@@ -312,6 +313,7 @@ h2 {
     .thumbnail {
       width: 100%;
       margin-right: 0;
+      margin-bottom: 14px;
     }
     .details {
       width: 100%;
@@ -353,6 +355,10 @@ table {
   color: @text-regular;
 }
 
+.no-gigs {
+  color: @text-regular;
+}
+
 @media (max-width: 420px) {
   .table-gigs {
     td:nth-child(2) {
@@ -360,6 +366,9 @@ table {
     }
     td:last-child {
       display: none;
+    }
+    td.no-gigs:last-child {
+      display: table-cell;
     }
   }
 }
@@ -394,7 +403,7 @@ table {
     text-align: center;
   }
   .bio .photo { 
-    margin: 0;
+    margin: 0 0 2em 0
   }
 }
 
@@ -522,6 +531,10 @@ footer {
     .auto-resizable-iframe {
       max-width: 100%;
     }
+
+    .video-player {
+      height: auto;
+    }
   }
 }
 
@@ -564,10 +577,45 @@ footer {
 }
 
 @media (max-width: 600px) {
-  .table-filmography .column--hide-mobile {
-    display: none;
-    visibility: collapse;
+  .table-filmography {
+    .column--hide-mobile {
+      display: none;
+      visibility: collapse;
+    }
+
+    td {
+      display: block;
+      border-top: 0;
+    }
+    td:last-child {
+      border-top: 0;
+      padding-top: 0;
+      border-bottom: 1px solid @border;
+    }
+
+    .table-header {
+      /*border-top: 1px solid @border;*/
+      /*border-bottom: 1px solid @border;*/
+    }
+
+    .table-header:first-child td {
+      border-bottom: 1px solid @border;
+      border-top: 1px solid @border;
+    }
+
+    .table-header td:last-child {
+      padding-top: 12px;
+    }
+    
+    tr:last-child td:first-child {
+      border-bottom: 0;
+    }
+    tr:last-child td:last-child {
+      border-bottom: 0;
+    }
   }
+
+
 }
 
 .cv {
