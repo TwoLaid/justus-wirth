@@ -12,15 +12,12 @@ function scrollTo(element) {
     // var timeFunction = easings[easing](time);
     document.body.scrollTop = (time * (targetY - start)) + start;
 
-    console.log(document.body.scrollTop, targetY);
-
     if (document.body.scrollTop === targetY) {
       return;
     }
 
     if (document.body.scrollTop + window.innerHeight >= document.body.scrollHeight - 1  && document.body.scrollTop <= targetY) {
       // reached the bottom
-      console.log('bottom');
       return;
     }
 
