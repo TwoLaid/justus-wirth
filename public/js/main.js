@@ -4,19 +4,19 @@ function scrollTo(element) {
   var targetY = element.offsetTop - 80;
   var startTime = Date.now();
   var duration = 300;
-  const start = document.body.scrollTop;
+  const start = document.scrollingElement.scrollTop;
 
   function animatedScroll() {
     var now = Date.now();
     var time = Math.min(1, ((now - startTime) / duration));
     // var timeFunction = easings[easing](time);
-    document.body.scrollTop = (time * (targetY - start)) + start;
+    document.scrollingElement.scrollTop = (time * (targetY - start)) + start;
 
-    if (document.body.scrollTop === targetY) {
+    if (document.scrollingElement.scrollTop === targetY) {
       return;
     }
 
-    if (document.body.scrollTop + window.innerHeight >= document.body.scrollHeight - 1  && document.body.scrollTop <= targetY) {
+    if (document.scrollingElement.scrollTop + window.innerHeight >= document.body.scrollHeight - 1  && document.scrollingElement.scrollTop <= targetY) {
       // reached the bottom
       return;
     }
