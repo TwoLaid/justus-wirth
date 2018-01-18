@@ -1,78 +1,68 @@
 
-function scrollTo(element) {
-  console.log('target:', element.offsetTop);
-  var targetY = element.offsetTop - 80;
-  var startTime = Date.now();
-  var duration = 300;
-  const start = document.scrollingElement.scrollTop;
+(function() {
+  function scrollTo(element) {
+    console.log('target:', element.offsetTop);
+    var targetY = element.offsetTop - 80;
+    var startTime = Date.now();
+    var duration = 300;
+    const start = document.scrollingElement.scrollTop;
 
-  function animatedScroll() {
-    var now = Date.now();
-    var time = Math.min(1, ((now - startTime) / duration));
-    // var timeFunction = easings[easing](time);
-    document.scrollingElement.scrollTop = (time * (targetY - start)) + start;
+    function animatedScroll() {
+      var now = Date.now();
+      var time = Math.min(1, ((now - startTime) / duration));
+      // var timeFunction = easings[easing](time);
+      document.scrollingElement.scrollTop = (time * (targetY - start)) + start;
 
-    if (document.scrollingElement.scrollTop === targetY) {
-      return;
+      if (document.scrollingElement.scrollTop === targetY) {
+        return;
+      }
+
+      if (document.scrollingElement.scrollTop + window.innerHeight >= document.body.scrollHeight - 1  && document.scrollingElement.scrollTop <= targetY) {
+        // reached the bottom
+        return;
+      }
+
+      requestAnimationFrame(animatedScroll);
     }
 
-    if (document.scrollingElement.scrollTop + window.innerHeight >= document.body.scrollHeight - 1  && document.scrollingElement.scrollTop <= targetY) {
-      // reached the bottom
-      return;
+    animatedScroll();
+  }
+
+  var stickyNav = document.querySelector('nav.navigation-level-2');
+  var navElements = document.querySelectorAll('nav.navigation-level-2 .nav-item a');
+
+  if (stickyNav) {
+    for (var i = 0; i < navElements.length; i++) {
+      navElements[i].addEventListener('click', function (e) {
+        e.preventDefault();
+        scrollTo(document.querySelector(this.hash));
+      });
     }
 
-    requestAnimationFrame(animatedScroll);
-  }
+    window.onscroll = function () {
+      var scrollY = window.scrollY;
 
-  animatedScroll();
-}
-
-var stickyNav = document.querySelector('nav.navigation-level-2');
-var navElements = document.querySelectorAll('nav.navigation-level-2 .nav-item a');
-
-if (stickyNav) {
-  for (var i = 0; i < navElements.length; i++) {
-    navElements[i].addEventListener('click', function (e) {
-      e.preventDefault();
-      scrollTo(document.querySelector(this.hash));
-    });
-  }
-
-  window.onscroll = function () {
-    var scrollY = window.scrollY;
-
-    if (scrollY >= 600) {
-      stickyNav.classList.add('sticky');
-    } else {
-      stickyNav.classList.remove('sticky');
+      if (scrollY >= 600) {
+        stickyNav.classList.add('sticky');
+      } else {
+        stickyNav.classList.remove('sticky');
+      }
     }
-
-    // var maxOnScreen = 0;
-    // var maxOnScreenTarget = navElements[0];
-
-    // // focus on top half of screen
-    // var windowHeight = window.outerHeight / 2;
-
-    // for (var i = 0; i < navElements.length; i++) {
-    //   var target = navElements[i].hash;
-    //   var rect = document.querySelector(target).getBoundingClientRect();
-    //   var onScreen = (Math.min(rect.bottom, windowHeight) - Math.max(0, rect.top)) / windowHeight;
-    //   if (onScreen > maxOnScreen) {
-    //     maxOnScreen = onScreen;
-    //     maxOnScreenTarget = navElements[i];
-    //   }
-    // }
-
-    // for (var i = 0; i < navElements.length; i++) {
-    //   var e = navElements[i];
-    //   if (e == maxOnScreenTarget) {
-    //     e.parentElement.classList.add('active');
-    //   } else {
-    //     e.parentElement.classList.remove('active');
-    //   }
-    // }
   }
-}
+
+  // Google Tags
+  window.addEventListener("click", function(e) {
+    var target = e.target;
+
+    if (target.dataset.gtagVendor) {
+      gtag("event", "check_out_music", {
+        "event_category": "engagement",
+        "album": target.dataset.gtagAlbum,
+        "vendor": target.dataset.gtagVendor
+      });
+    }
+  });
+})();
 
 var player;
 var playerWrapper = document.querySelector('.video-gallery .video-player');
