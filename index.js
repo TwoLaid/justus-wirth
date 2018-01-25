@@ -22,6 +22,10 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.get('/', function (request, response) {
+  response.render('pages/landing_hai');
+});
+
+app.get('/landing', function (request, response) {
   response.render('pages/landing');
 });
 
@@ -54,6 +58,7 @@ var pages = [
   { name: 'musik', template: 'pages/music/index', config: { activePage: 'musik' } },
   { name: 'tonmeister', template: 'pages/tonmeister/index', config: { activePage: 'tonmeister' } },
   { name: 'impressum', template: 'pages/imprint', config: { activePage: 'impressum' } },
+  { name: 'landing_hai', template: 'pages/landing_hai', config: {} },
 ];
 
 
