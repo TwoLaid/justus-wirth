@@ -54,10 +54,11 @@ app.listen(app.get('port'), function () {
 
 // create dist
 var pages = [
-  { name: 'index', template: 'pages/landing', config: {} },
+  { name: 'landing', template: 'pages/landing', config: {} },
   { name: 'musik', template: 'pages/music/index', config: { activePage: 'musik' } },
   { name: 'tonmeister', template: 'pages/tonmeister/index', config: { activePage: 'tonmeister' } },
   { name: 'impressum', template: 'pages/imprint', config: { activePage: 'impressum' } },
+  { name: 'index', template: 'pages/landing_hai', config: {} },
   { name: 'landing_hai', template: 'pages/landing_hai', config: {} },
 ];
 
