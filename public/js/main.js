@@ -1,7 +1,6 @@
 
 (function() {
   function scrollTo(element) {
-    console.log('target:', element.offsetTop);
     var targetY = element.offsetTop - 80;
     var startTime = Date.now();
     var duration = 300;
