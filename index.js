@@ -22,20 +22,6 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.get('/', function (request, response) {
-  response.render('pages/landing_hai');
-});
-
-app.get('/landing', function (request, response) {
-  response.render('pages/landing');
-});
-
-app.get('/musik', function (request, response) {
-  response.render('pages/music/index', {
-    activePage: 'musik'
-  });
-});
-
-app.get('/tonmeister', function (request, response) {
   response.render('pages/tonmeister/index', {
     activePage: 'tonmeister'
   });
@@ -54,12 +40,8 @@ app.listen(app.get('port'), function () {
 
 // create dist
 var pages = [
-  { name: 'landing', template: 'pages/landing', config: {} },
-  { name: 'musik', template: 'pages/music/index', config: { activePage: 'musik' } },
-  { name: 'tonmeister', template: 'pages/tonmeister/index', config: { activePage: 'tonmeister' } },
+  { name: 'index', template: 'pages/tonmeister/index', config: { activePage: 'tonmeister' } },
   { name: 'impressum', template: 'pages/imprint', config: { activePage: 'impressum' } },
-  { name: 'index', template: 'pages/landing_hai', config: {} },
-  { name: 'landing_hai', template: 'pages/landing_hai', config: {} },
 ];
 
 
